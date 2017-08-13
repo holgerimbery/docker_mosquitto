@@ -14,32 +14,31 @@ For swarm usage, use a distributed filesystem like glusterfs and map "local" dir
    * pull image docker poll holgerimbery/docker_mosquitto on every node
    * copy config files (github: directory config) to you local config - directory
    * generate username and password:
+   
      start a container (please modify volume mapping according to your needs) on the master
 ```
 docker run -it -v /mnt/glusterfs/config/mqtt/config/:/mqtt/config --entrypoint "/bin/bash" holgerimbery/docker_mosquitto
 ```
          
    * start password setup process
-         
-    ```
-    cd /mqtt/config && chmod 755 mosquitto_password_install.sh && ./mosquitto_password_install.sh
-    ```
+```
+cd /mqtt/config && chmod 755 mosquitto_password_install.sh && ./mosquitto_password_install.sh
+```
 
    * exit & close the container
-
-    ```
-    exit
-    ```
+```
+exit
+```
          
    * start mosquitto as a service on your swarm:
 
-    ```
-    docker service create --name mosquitto \
-    --mount type=bind,source=/mnt/glusterfs/config/mqtt/data,target=/mqtt/data \
-    --mount type=bind,source=/mnt/glusterfs/config/mqtt/config,target=/mqtt/config \
-    --mount type=bind,source=/mnt/glusterfs/config/mqtt/log,target=/mqtt/log \
-    --network ingress \
-    --publish 1883:1883 \
-    --publish 9001:9001 \
-    holgerimbery/docker_mosquitto
-    ```
+```
+docker service create --name mosquitto \
+--mount type=bind,source=/mnt/glusterfs/config/mqtt/data,target=/mqtt/data \
+--mount type=bind,source=/mnt/glusterfs/config/mqtt/config,target=/mqtt/config \
+--mount type=bind,source=/mnt/glusterfs/config/mqtt/log,target=/mqtt/log \
+--network ingress \
+--publish 1883:1883 \
+--publish 9001:9001 \
+holgerimbery/docker_mosquitto
+```
