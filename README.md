@@ -19,9 +19,9 @@ For swarm usage, use a distributed filesystem like glusterfs and map "local" dir
      3.  generate username and password:
          * start a container (please modify volume mapping according to your needs) on the master
          
-    `docker run -it -v /mnt/glusterfs/config/mqtt/config/:/mqtt/config --entrypoint "/bin/bash"  holgerimbery/docker_mosquitto`
+    ```docker run -it -v /mnt/glusterfs/config/mqtt/config/:/mqtt/config --entrypoint "/bin/bash"  holgerimbery/docker_mosquitto```
          
-         2. start password setup process
+         * start password setup process
          
 ```
     cd /mqtt/config && chmod 755 mosquitto_password_install.sh && ./mosquitto_password_install.sh
