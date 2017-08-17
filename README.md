@@ -43,7 +43,7 @@ docker service create --name mosquitto \
 holgerimbery/docker_mosquitto
 ```
 
-# usage (architecture: rpi)
+### usage (architecture: rpi)
 * pull image docker poll holgerimbery/docker_mosquitto:rpi on every node
 * follow the description above (architecture: amd64), but leave out the pull sequence mentioned there.
 
