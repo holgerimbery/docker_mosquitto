@@ -7,6 +7,9 @@ For swarm usage, use a distributed filesystem like glusterfs and map "local" dir
 
   * If you want to use mosquitto with passwords, generate a password file with mosquitto_passwd first and enable the usage of passwords afterwards.
   * If you use the sample configuration files on github, please copy them to your local config-directory and use the following flow to generate a password pair and start mqtt as a service on your swarm.
+  
+### disclaimer
+based on official base-images, amd64 version (tag :latest) is automated build via docker-hub & raspberry pi version (tag :rpi) is automated build via travis ci.
 
 
 ### Usage (architecture: amd64)
