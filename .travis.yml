@@ -16,4 +16,10 @@ jobs:
       - docker build -f Dockerfile.rpi -t docker_mosquitto:rpi .
       - docker images
       - docker tag docker_mosquitto:rpi $DOCKER_USERNAME/docker_mosquitto:rpi
-      - docker push $DOCKER_USERNAME/docker_mosquitto:rpi
+    - stage: test docker image
+      script:
+        - docker run -d $DOCKER_USERNAME/docker_mosquitto:rpi
+        - docker ps | grep rpi
+after_success:
+    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    - docker push $DOCKER_USERNAME/docker_mosquitto:rpi
