@@ -50,3 +50,7 @@ holgerimbery/docker_mosquitto
 * pull image docker poll holgerimbery/docker_mosquitto:rpi on every node
 * follow the description above (architecture: amd64), but leave out the pull sequence mentioned there.
 
+
+
+## License
+MIT (c) 2017 Holger Imbery https://github.com/holgerimbery ![made-in-berlin](https://github.com/holgerimbery/environment/raw/master/made-in-berlin-badge_small.png)
