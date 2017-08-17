@@ -9,9 +9,9 @@ For swarm usage, use a distributed filesystem like glusterfs and map "local" dir
   * If you use the sample configuration files on github, please copy them to your local config-directory and use the following flow to generate a password pair and start mqtt as a service on your swarm.
 
 
-### process
+### Usage (architecture: amd64)
 
-   * pull image docker poll holgerimbery/docker_mosquitto on every node
+   * pull image docker poll holgerimbery/docker_mosquitto:latest on every node
    * copy config files (github: directory config) to you local config - directory
    * generate username and password:
    
@@ -42,3 +42,8 @@ docker service create --name mosquitto \
 --publish 9001:9001 \
 holgerimbery/docker_mosquitto
 ```
+
+# usage (architecture: rpi)
+* pull image docker poll holgerimbery/docker_mosquitto:rpi on every node
+* follow the description above (architecture: amd64), but leave out the pull sequence mentioned there.
+
