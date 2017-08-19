@@ -1,12 +1,12 @@
 
 ## mosquitto mqtt broker
 
-you can use this image as a container and as a service in a swarm.
+You can use this image as a container and as well as a service in a swarm.
 
-For swarm usage, use a distributed filesystem like glusterfs and map "local" directories to the service.
+For swarm usage, it´s recommended to use a distributed filesystem like glusterfs and map "local" directories to the service.
 
   * If you want to use mosquitto with passwords, generate a password file with mosquitto_passwd first and enable the usage of passwords afterwards.
-  * If you use the sample configuration files on github, please copy them to your local config-directory and use the following flow to generate a password pair and start mqtt as a service on your swarm.
+  * For a quick start, you can use the sample configuration files provided on the docker_mosquitto github repository. Please copy them to your local config-directory and use the following flow to generate a password pair and start mqtt as a service on your swarm. A script will help you to generate a user-name / password pair.
   
 ### disclaimer
 based on official base-images, amd64 version (tag :latest) is automated build via docker-hub & raspberry pi version (tag :rpi) is automated build via travis ci.
@@ -17,8 +17,8 @@ based on official base-images, amd64 version (tag :latest) is automated build vi
    * pull image docker poll holgerimbery/docker_mosquitto:latest on every node
    * copy config files (github: directory config) to you local config - directory
    * generate username and password:
-   
-     start a container (please modify volume mapping according to your needs) on the master
+   start a container (please modify volume mapping according to your needs) on the master
+     
 ```
 docker run -it -v /mnt/glusterfs/config/mqtt/config/:/mqtt/config --entrypoint "/bin/bash" holgerimbery/docker_mosquitto
 ```
