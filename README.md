@@ -26,6 +26,7 @@ docker run -it -v /mnt/glusterfs/config/mqtt/config/:/mqtt/config --entrypoint "
    * start password setup process
 ```
 cd /mqtt/config && chmod 755 mosquitto_password_install.sh && ./mosquitto_password_install.sh
+bash mosquitto_password.sh 
 ```
 
    * exit & close the container
