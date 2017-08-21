@@ -52,6 +52,13 @@ holgerimbery/docker_mosquitto
 * follow the description above (architecture: amd64), but leave out the pull sequence mentioned there.
 
 
+## parea - IoT Server
+![parea](https://github.com/holgerimbery/parea/raw/master/files/logo_xs.jpg)
+
+This docker image is part of [parea - the IoT Server](https://github.com/holgerimbery/parea)
+but can also used independent as a standalone container.
 
 ## License
-MIT (c) 2017 Holger Imbery https://github.com/holgerimbery ![made-in-berlin](https://github.com/holgerimbery/environment/raw/master/made-in-berlin-badge_small.png)
+MIT (c) 2017 Holger Imbery https://github.com/holgerimbery 
+
+![made-in-berlin](https://github.com/holgerimbery/environment/raw/master/made-in-berlin-badge_small.png)
