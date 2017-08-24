@@ -1,4 +1,4 @@
-## mosquitto mqtt broker (armhf)
+## mosquitto mqtt broker
 
 You can use this image as a container and as well as a service in a swarm.
 
