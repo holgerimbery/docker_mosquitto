@@ -1,6 +1,6 @@
 FROM library/debian:jessie
 MAINTAINER Holger Imbery <contact@connectedobjects.cloud>
-LABEL version="1.0" \
+LABEL version="1.1" \
       description="mosquitto mqtt brocker "
 
 ADD https://repo.mosquitto.org/debian/mosquitto-repo.gpg.key .
