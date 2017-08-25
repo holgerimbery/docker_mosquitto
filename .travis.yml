@@ -15,7 +15,7 @@ jobs:
       - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       - docker build -f Dockerfile.armhf -t docker_mosquitto:armhf .
       - docker images
-            - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo ""; else echo -$TRAVIS_BRANCH ; fi`
+      - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo ""; else echo -$TRAVIS_BRANCH ; fi`
       - docker tag docker_mosquitto:armhf $DOCKER_USERNAME/docker_mosquitto:armhf$TAG
     - stage: test docker image
       script:
