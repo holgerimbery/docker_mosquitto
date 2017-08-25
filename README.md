@@ -85,6 +85,13 @@ docker service create --name mosquitto \
 holgerimbery/docker_mosquitto:armhf
 ```
 
+## Tags (docker hub)
+- latest - latest amd64
+- armhf - latest armhf
+- develop - latest amd64 development version
+- armhf-develop - latest armhf development version
+- rpi - outdated, please use armhf
+
 ## parea - IoT Appliance
 ![parea](https://github.com/holgerimbery/parea/raw/master/files/logo_xs.jpg)
 
