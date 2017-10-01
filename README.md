@@ -93,7 +93,7 @@ holgerimbery/docker_mosquitto:armhf
 - rpi - outdated, please use armhf
 
 ## parea - IoT Appliance
-![parea](https://github.com/holgerimbery/parea/raw/master/files/logo_xs.jpg)
+![logo](https://github.com/holgerimbery/environment/raw/master/logo_small.jpg)
 
 This docker image is part of [parea - the IoT Appliance](https://github.com/holgerimbery/parea)
 but can also used independent as a standalone container.
