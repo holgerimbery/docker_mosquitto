@@ -1,4 +1,4 @@
-[![Docker Pulls](https://img.shields.io/docker/pulls/holgerimbery/docker_mosquitto.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/holgerimbery/docker_mosquitto.svg)
 ## mosquitto mqtt broker
 
 You can use this image as a container and as well as a service in a swarm.
