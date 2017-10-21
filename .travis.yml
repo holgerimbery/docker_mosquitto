@@ -10,17 +10,15 @@ before_script:
 
 jobs:
   include:
-    - stage: build docker image
+    - stage: build docker image arm32v7
       script:
       - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-      - docker build -f Dockerfile.armhf -t docker_mosquitto:armhf .
+      - docker build -f Dockerfile.arm32v7 -t docker_mosquitto:arm32v7 .
       - docker images
       - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo ""; else echo -$TRAVIS_BRANCH ; fi`
-      - docker tag docker_mosquitto:armhf $DOCKER_USERNAME/docker_mosquitto:armhf$TAG
-    - stage: test docker image
-      script:
-        - docker run -d $DOCKER_USERNAME/docker_mosquitto:armhf$TAG
-        - docker ps | grep armhf
+      - docker tag docker_mosquitto:arm32v7 $DOCKER_USERNAME/docker_mosquitto:arm32v7$TAG
+      - docker run -d $DOCKER_USERNAME/docker_mosquitto:arm32v7$TAG
+      - docker ps | grep arm32v7
 after_success:
     - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-    - docker push $DOCKER_USERNAME/docker_mosquitto:armhf$TAG
+    - docker push $DOCKER_USERNAME/docker_mosquitto:arm32v7$TAG
