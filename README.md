@@ -1,12 +1,15 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/holgerimbery/docker_mosquitto.svg) ![Docker Build Status](https://img.shields.io/docker/build/holgerimbery/docker_mosquitto.svg)![Travis](https://img.shields.io/travis/holgerimbery/docker_mosquitto.svg)
 ## mosquitto mqtt broker
-
 You can use this image as a container and as well as a service in a swarm.
-
 For swarm usage, it´s recommended to use a distributed filesystem like glusterfs and map "local" directories to the service.
 
   * If you want to use mosquitto with passwords, generate a password file with mosquitto_passwd first and enable the usage of passwords afterwards.
   * For a quick start, you can use the sample configuration files provided on the docker_mosquitto github repository. Please copy them to your local config-directory and use the following flow to generate a password pair and start mqtt as a service on your swarm. A script will help you to generate a user-name / password pair.
+
+### Supported architectures:
+Linux x86-64 (amd64), ARMv7 32-bit (arm32v7)
+#### DEPRECATED
+The armhf tag is deprecated in favor of the more-specific arm32v7 and arm32v6 tag. Please adjust your usages accordingly.
 
 
   ### Usage (architecture: amd64)
