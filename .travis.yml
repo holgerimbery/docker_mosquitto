@@ -12,3 +12,6 @@ before_install:
 script:
     - make TARGET=arm64
     - make TARGET=amd64
+    - make TARGET=armhf
+    - make TARGET=i386
+    - make TARGET=ppc64el

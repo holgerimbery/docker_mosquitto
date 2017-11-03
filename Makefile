@@ -1,5 +1,5 @@
 TARGET ?= arm64
-ARCHS ?= amd64 armhf
+ARCHS ?= amd64 arm64 armhf i386 ppc64el
 BASE_ARCH ?= arm64
 
 
