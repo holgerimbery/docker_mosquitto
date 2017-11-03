@@ -8,11 +8,10 @@ build: tmp-$(TARGET)/Dockerfile
 	docker run --rm holgerimbery/docker_mosquitto::$(TARGET)-stretch uname -a
 
 
-tmp-$(TARGET)/Dockerfile: Dockerfile $(shell find overlay-common overlay-$(TARGET))
+tmp-$(TARGET)/Dockerfile: Dockerfile $(shell find overlay-$(TARGET))
 	rm -rf tmp-$(TARGET)
 	mkdir tmp-$(TARGET)
 	cp Dockerfile $@
-	cp -rf overlay-common tmp-$(TARGET)/
 	cp -rf overlay-$(TARGET) tmp-$(TARGET)/
 	for arch in $(ARCHS); do                     \
 	  if [ "$$arch" != "$(TARGET)" ]; then       \
