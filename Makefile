@@ -5,7 +5,7 @@ BASE_ARCH ?= arm64
 
 build: tmp-$(TARGET)/Dockerfile
 	docker build --build-arg ARCH=$(TARGET) --no-cache -t holgerimbery/docker_mosquitto:$(TARGET)-stretch tmp-$(TARGET)
-	docker run --rm holgerimbery/docker_mosquitto::$(TARGET)-stretch uname -a
+	docker run --rm holgerimbery/docker_mosquitto:$(TARGET)-stretch uname -a
 
 
 tmp-$(TARGET)/Dockerfile: Dockerfile $(shell find overlay-$(TARGET))
