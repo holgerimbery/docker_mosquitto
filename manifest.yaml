@@ -11,6 +11,12 @@ manifests:
     platform:
       architecture: arm64
       os: linux
+      
+  -
+    image: holgerimbery/docker_mosquitto:armhf-stretch
+    platform:
+      architecture: armhf
+      os: linux
 
   -
     image: holgerimbery/docker_mosquitto:amd64-stretch
