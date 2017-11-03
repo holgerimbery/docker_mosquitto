@@ -15,7 +15,7 @@ manifests:
   -
     image: holgerimbery/docker_mosquitto:armhf-stretch
     platform:
-      architecture: armhf
+      architecture: arm
       os: linux
 
   -
