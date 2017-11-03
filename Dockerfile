@@ -12,7 +12,7 @@ ADD https://repo.mosquitto.org/debian/mosquitto-stretchlist /etc/apt/sources.lis
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y mosquitto build-essentials && \
+    apt-get install -y mosquitto build-essentials gnupg2 && \
     rm -f mosquitto-repo.gpg.key \
     rm -rf /var/lib/apt/lists/*
 
