@@ -14,7 +14,7 @@ RUN apt-get update && \
 
 ADD https://repo.mosquitto.org/debian/mosquitto-repo.gpg.key .
 RUN apt-key add mosquitto-repo.gpg.key
-ADD https://repo.mosquitto.org/debian/mosquitto-stretchlist /etc/apt/sources.list.d/
+ADD https://repo.mosquitto.org/debian/mosquitto-stretch.list /etc/apt/sources.list.d/
 
 RUN apt-get update && \
     apt-get upgrade -y && \
