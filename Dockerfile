@@ -9,7 +9,7 @@ LABEL version="1.2" \
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y build-essentials gnupg2 && \
+    apt-get install -y gnupg2 && \
     rm -rf /var/lib/apt/lists/*
 
 ADD https://repo.mosquitto.org/debian/mosquitto-repo.gpg.key .
