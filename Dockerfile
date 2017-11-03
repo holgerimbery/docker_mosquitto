@@ -6,13 +6,19 @@ MAINTAINER Holger Imbery <contact@connectedobjects.cloud>
 LABEL version="1.2" \
       description="mosquitto mqtt brocker"
 
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y build-essentials gnupg2 && \
+    rm -rf /var/lib/apt/lists/*
+
 ADD https://repo.mosquitto.org/debian/mosquitto-repo.gpg.key .
 RUN apt-key add mosquitto-repo.gpg.key
 ADD https://repo.mosquitto.org/debian/mosquitto-stretchlist /etc/apt/sources.list.d/
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y mosquitto build-essentials gnupg2 && \
+    apt-get install -y mosquitto && \
     rm -f mosquitto-repo.gpg.key \
     rm -rf /var/lib/apt/lists/*
 
