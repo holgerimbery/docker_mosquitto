@@ -1,4 +1,4 @@
-image: holgerimbery/docker_mosquitto:latest
+image: holgerimbery/docker_mosquitto:latest-develop
 manifests:
   -
     image: holgerimbery/docker_mosquitto:ppc64el-stretch
