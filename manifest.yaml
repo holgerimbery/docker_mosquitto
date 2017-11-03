@@ -1,4 +1,4 @@
-image: holgerimbery/docker_mosquitto:latest
+image: holgerimbery/docker_mosquitto:latest-develop
 manifests:
   -
     image: holgerimbery/docker_mosquitto:ppc64el-stretch
@@ -10,6 +10,12 @@ manifests:
     image: holgerimbery/docker_mosquitto:arm64-stretch
     platform:
       architecture: arm64
+      os: linux
+      
+  -
+    image: holgerimbery/docker_mosquitto:armhf-stretch
+    platform:
+      architecture: arm
       os: linux
 
   -
