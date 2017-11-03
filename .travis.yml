@@ -14,3 +14,13 @@ script:
     - make TARGET=amd64
     - make TARGET=i386
     - make TARGET=ppc64el
+
+after_success:
+    - if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push $DOCKER_REPO; fi
+    - echo "Downloading manifest-tool"
+    - wget https://github.com/estesp/manifest-tool/releases/download/v0.7.0/manifest-tool-linux-amd64
+    - mv manifest-tool-linux-amd64 manifest-tool
+    - chmod +x manifest-tool
+    - ./manifest-tool
+    - echo "Pushing manifest holgerimbery/docker_mosquitto:latest"
+    - ./manifest-generate.sh $DOCKER_USERNAME $DOCKER_PASSWORD
