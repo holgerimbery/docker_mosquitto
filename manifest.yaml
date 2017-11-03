@@ -1,0 +1,25 @@
+image: holgerimbery/docker_mosquitto:latest
+manifests:
+  -
+    image: holgerimbery/docker_mosquitto:ppc64el-stretch
+    platform:
+      architecture: ppc64le
+      os: linux
+
+  -
+    image: holgerimbery/docker_mosquitto:arm64-stretch
+    platform:
+      architecture: arm64
+      os: linux
+
+  -
+    image: holgerimbery/docker_mosquitto:amd64-stretch
+    platform:
+      architecture: amd64
+      os: linux
+
+  -
+    image: holgerimbery/docker_mosquitto:i386-stretch
+    platform:
+      architecture: 386
+      os: linux
