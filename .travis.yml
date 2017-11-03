@@ -1,24 +1,14 @@
-sudo: true
+sudo: required
+
+language: bash
 
 services:
-  - docker
+    - docker
 
-before_script:
-  - sudo apt-get --yes --no-install-recommends install binfmt-support qemu-user-static
-  - echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' | sudo tee -a /proc/sys/fs/binfmt_misc/register
-
-
-jobs:
-  include:
-    - stage: build docker image arm32v7
-      script:
-      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-      - docker build -f Dockerfile.arm32v7 -t docker_mosquitto:arm32v7 .
-      - docker images
-      - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo ""; else echo -$TRAVIS_BRANCH ; fi`
-      - docker tag docker_mosquitto:arm32v7 $DOCKER_USERNAME/docker_mosquitto:arm32v7$TAG
-      - docker run -d $DOCKER_USERNAME/docker_mosquitto:arm32v7$TAG
-      - docker ps | grep arm32v7
-after_success:
+before_install:
+    - docker pull multiarch/qemu-user-static:register
+    - docker run --rm --privileged multiarch/qemu-user-static:register --reset
     - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-    - docker push $DOCKER_USERNAME/docker_mosquitto:arm32v7$TAG
+script:
+    - make TARGET=arm64
+    - make TARGET=amd64

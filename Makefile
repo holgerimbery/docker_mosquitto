@@ -1,11 +1,11 @@
-TARGET ?= armhf
+TARGET ?= arm64
 ARCHS ?= amd64 armhf
-BASE_ARCH ?= armhf
+BASE_ARCH ?= arm64
 
 
 build: tmp-$(TARGET)/Dockerfile
-	docker build --build-arg ARCH=$(TARGET) --no-cache -t meyskens/multiarch-nodejs:$(TARGET)-latest tmp-$(TARGET)
-	docker run --rm meyskens/multiarch-nodejs:$(TARGET)-latest uname -a
+	docker build --build-arg ARCH=$(TARGET) --no-cache -t holgerimbery/docker_mosquitto:$(TARGET)-stretch tmp-$(TARGET)
+	docker run --rm holgerimbery/docker_mosquitto::$(TARGET)-stretch uname -a
 
 
 tmp-$(TARGET)/Dockerfile: Dockerfile $(shell find overlay-common overlay-$(TARGET))
