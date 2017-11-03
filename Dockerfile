@@ -1,6 +1,7 @@
 FROM holgerimbery/debian:arm64-stretch
 #FROM holgerimbery/debian:amd64-stretch # arch=amd64
 #FROM holgerimbery/debian:i386-stretch # arch=i386
+#FROM holgerimbery/debian:i386-strecht # arch=armhf
 #FROM holgerimbery/debian:ppc64el-stretch # arch=ppc64el
 ARG ARCH=arm64
 
