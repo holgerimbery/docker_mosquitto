@@ -4,7 +4,7 @@ FROM holgerimbery/debian:arm64-stretch
 #FROM holgerimbery/debian:i386-stretch # arch=armhf
 #FROM holgerimbery/debian:ppc64el-stretch # arch=ppc64el
 #FROM holgerimbery/debian:armel-stretch # arch=armel
-#FROM holgerimbery/debian:ppc64el-s390x # arch=ps390x
+#FROM holgerimbery/debian:s390x-stretch # arch=ps390x
 ARG ARCH=arm64
 
 MAINTAINER Holger Imbery <contact@connectedobjects.cloud>
