@@ -4,8 +4,8 @@ BASE_ARCH ?= arm64
 
 
 build: tmp-$(TARGET)/Dockerfile
-	docker build --build-arg ARCH=$(TARGET) --no-cache -t $DOCKER_REPO:$(TARGET)-stretch tmp-$(TARGET)
-	docker run --rm $DOCKER_REPO:$(TARGET)-stretch uname -a
+	docker build --build-arg ARCH=$(TARGET) --no-cache -t $(DOCKER_REPO):$(TARGET)-stretch tmp-$(TARGET)
+	docker run --rm $(DOCKER_REPO):$(TARGET)-stretch uname -a
 
 
 tmp-$(TARGET)/Dockerfile: Dockerfile $(shell find overlay-$(TARGET))
