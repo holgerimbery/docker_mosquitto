@@ -10,12 +10,14 @@ manifests:
     image: holgerimbery/docker_mosquitto:arm64-stretch
     platform:
       architecture: arm64
+      variant: v8
       os: linux
       
   -
     image: holgerimbery/docker_mosquitto:armhf-stretch
     platform:
       architecture: arm
+      variant: v7
       os: linux
 
   -
@@ -28,4 +30,15 @@ manifests:
     image: holgerimbery/docker_mosquitto:i386-stretch
     platform:
       architecture: 386
+      os: linux
+  -
+    image: holgerimbery/docker_mosquitto:armel-stretch
+    platform:
+      architecture: arm
+      variant: v6
+      os: linux
+
+  image: holgerimbery/docker_mosquitto:s390x-stretch
+    platform:
+      architecture: s390x
       os: linux

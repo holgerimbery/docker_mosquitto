@@ -1,5 +1,5 @@
 TARGET ?= arm64
-ARCHS ?= amd64 armhf arm64 i386 ppc64el
+ARCHS ?= amd64 armhf arm64 i386 ppc64el armel s390x
 BASE_ARCH ?= arm64
 
 
