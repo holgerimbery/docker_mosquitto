@@ -37,8 +37,8 @@ manifests:
       architecture: arm
       variant: v6
       os: linux
-
-  image: holgerimbery/docker_mosquitto:s390x-stretch
+  -
+    image: holgerimbery/docker_mosquitto:s390x-stretch
     platform:
       architecture: s390x
       os: linux
