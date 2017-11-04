@@ -25,5 +25,5 @@ after_success:
     - mv manifest-tool-linux-amd64 manifest-tool
     - chmod +x manifest-tool
     - ./manifest-tool
-    - echo "Pushing manifest holgerimbery/docker_mosquitto:latest"
+    - echo "Pushing manifest $DOCKER_REPO:latest"
     - ./manifest-generate.sh $DOCKER_USERNAME $DOCKER_PASSWORD
