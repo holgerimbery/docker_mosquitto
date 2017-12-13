@@ -7,14 +7,14 @@ manifests:
       os: linux
 
   -
-    image: holgerimbery/docker_mosquitto:arm64-stretch
+    image: holgerimbery/docker_mosquitto:arm64v8-stretch
     platform:
       architecture: arm64
       variant: v8
       os: linux
       
   -
-    image: holgerimbery/docker_mosquitto:armhf-stretch
+    image: holgerimbery/docker_mosquitto:arm32v7-stretch
     platform:
       architecture: arm
       variant: v7
@@ -32,7 +32,7 @@ manifests:
       architecture: 386
       os: linux
   -
-    image: holgerimbery/docker_mosquitto:armel-stretch
+    image: holgerimbery/docker_mosquitto:arm32v6-stretch
     platform:
       architecture: arm
       variant: v6
