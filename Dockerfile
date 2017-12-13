@@ -1,9 +1,9 @@
 FROM holgerimbery/debian:arm64-stretch
 #FROM holgerimbery/debian:amd64-stretch # arch=amd64
 #FROM holgerimbery/debian:i386-stretch # arch=i386
-#FROM holgerimbery/debian:i386-stretch # arch=armhf
+#FROM holgerimbery/debian:arm32v7-stretch # arch=arm32v7
 #FROM holgerimbery/debian:ppc64el-stretch # arch=ppc64el
-#FROM holgerimbery/debian:armel-stretch # arch=armel
+#FROM holgerimbery/debian:arm32v6-stretch # arch=arm32v6
 #FROM holgerimbery/debian:s390x-stretch # arch=ps390x
 ARG ARCH=arm64
 
