@@ -1,6 +1,6 @@
-TARGET ?= arm64
-ARCHS ?= amd64 armhf arm64 i386 ppc64el armel s390x
-BASE_ARCH ?= arm64
+TARGET ?= arm64v8
+ARCHS ?= amd64 arm32v7 arm64 i386 ppc64el arm32v6 s390x
+BASE_ARCH ?= arm64v8
 
 
 build: tmp-$(TARGET)/Dockerfile
