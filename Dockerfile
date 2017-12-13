@@ -7,9 +7,9 @@ FROM holgerimbery/debian:arm64-stretch
 #FROM holgerimbery/debian:s390x-stretch # arch=ps390x
 ARG ARCH=arm64
 
-MAINTAINER Holger Imbery <contact@connectedobjects.cloud>
-LABEL version="1.2" \
-      description="mosquitto mqtt brocker"
+LABEL maintainer="contact@connectedobjects.cloud"
+LABEL version="1.3" 
+LABEL description="multiarch mosquitto mqtt brocker"
 
 RUN apt-get update && \
     apt-get upgrade -y && \
