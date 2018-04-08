@@ -19,5 +19,5 @@ RUN apt-get update && \
 RUN adduser --system --disabled-password --disabled-login mosquitto
 
 VOLUME ["/mqtt/data", "/mqtt/config", "/mqtt/log"]
-EXPOSE 1883 9001
+EXPOSE 1883 9001 8883 8083
 CMD ["/usr/sbin/mosquitto", "-c", "/mqtt/config/mosquitto.conf"]
