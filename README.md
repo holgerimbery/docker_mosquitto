@@ -35,6 +35,7 @@ cd /mqtt/config && chmod 755 mosquitto_password_install.sh && ./mosquitto_passwo
 ```
 bash mosquitto_password.sh
 ```
+   * edit /mqtt/config/conf.d/ssl.conf & /mqtt/config/conf.d/websocket_ssl.conf (path to certs)
 
    * exit & close the container
    
@@ -52,6 +53,8 @@ docker service create --name mosquitto \
 --network ingress \
 --publish 1883:1883 \
 --publish 9001:9001 \
+--publish 8883:8883 \
+--publish 8030:8083 \
 holgerimbery/docker_mosquitto:latest
 ```
 
