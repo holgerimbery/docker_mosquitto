@@ -7,7 +7,7 @@ For swarm usage, it´s recommended to use a distributed filesystem like glusterf
   * For a quick start, you can use the sample configuration files provided on the docker_mosquitto github repository. Please copy them to your local config-directory and use the following flow to generate a password pair and start mqtt as a service on your swarm. A script will help you to generate a user-name / password pair.
 
 ### Supported architectures:
-amd64, i386, arm32v6, arm32v7, arm64v8, ppc64el, s390x
+amd64, arm32v7, arm64v8
 
 
 ### Usage
