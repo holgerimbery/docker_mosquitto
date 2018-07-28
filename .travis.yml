@@ -2,28 +2,31 @@ sudo: required
 
 language: bash
 
-services:
+service:
     - docker
 
 before_install:
+    - wget https://github.com/clnperez/cli/releases/download/1.0/docker-linux-amd64
+    - chmod 755 docker-linux-amd64
     - docker pull multiarch/qemu-user-static:register
     - docker run --rm --privileged multiarch/qemu-user-static:register --reset
     - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+
 script:
-    - make TARGET=arm64v8
-    - make TARGET=amd64
-    - make TARGET=arm32v7
-    - make TARGET=i386
-    - make TARGET=ppc64el
-    - make TARGET=arm32v6
-    - make TARGET=s390x
+    - make arm64v8
+    - make amd64
+    - make arm32v6
+
 
 after_success:
-    - if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push $DOCKER_REPO; fi
-    - echo "Downloading manifest-tool"
-    - wget https://github.com/estesp/manifest-tool/releases/download/v0.7.0/manifest-tool-linux-amd64
-    - mv manifest-tool-linux-amd64 manifest-tool
-    - chmod +x manifest-tool
-    - ./manifest-tool
-    - echo "Pushing manifest $DOCKER_REPO:latest"
-    - ./manifest-generate.sh $DOCKER_USERNAME $DOCKER_PASSWORD
+    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    - docker push $REPO/$IMAGE_NAME:amd64-$IMAGE_VERSION
+    - docker push $REPO/$IMAGE_NAME:arm32v6-$IMAGE_VERSION
+    - docker push $REPO/$IMAGE_NAME:arm64v8-$IMAGE_VERSION
+    - ./docker-linux-amd64 -v 
+    - ./docker-linux-amd64 manifest create $REPO/$IMAGE_NAME:$IMAGE_VERSION $REPO/$IMAGE_NAME:amd64-$IMAGE_VERSION $REPO/$IMAGE_NAME:arm32v7-$IMAGE_VERSION $REPO/$IMAGE_NAME:arm64v8-$IMAGE_VERSION -a
+    - ./docker-linux-amd64 manifest inspect $REPO/$IMAGE_NAME:$IMAGE_VERSION
+    - ./docker-linux-amd64 manifest annotate $REPO/$IMAGE_NAME:$IMAGE_VERSION $REPO/$IMAGE_NAME:amd64-$IMAGE_VERSION
+    - ./docker-linux-amd64 manifest annotate $REPO/$IMAGE_NAME:$IMAGE_VERSION $REPO/$IMAGE_NAME:arm32v7-$IMAGE_VERSION --os linux --arch arm
+    - ./docker-linux-amd64 manifest annotate $REPO/$IMAGE_NAME:$IMAGE_VERSION $REPO/$IMAGE_NAME:arm64v8-$IMAGE_VERSION --os linux --arch arm64 --variant armv8
+    - ./docker-linux-amd64 manifest push $REPO/$IMAGE_NAME:$IMAGE_VERSION
