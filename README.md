@@ -1,4 +1,4 @@
-![Docker Pulls](https://img.shields.io/docker/pulls/holgerimbery/docker_mosquitto.svg) ![Docker Build Status](https://img.shields.io/docker/build/holgerimbery/docker_mosquitto.svg)![Travis](https://img.shields.io/travis/holgerimbery/docker_mosquitto.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/holgerimbery/docker_mosquitto.svg)[Travis](https://img.shields.io/travis/holgerimbery/docker_mosquitto.svg)
 ## mosquitto mqtt broker (multiarch - docker manifest & binfmt)
 You can use this image as a container and as well as a service in a swarm.
 For swarm usage, it´s recommended to use a distributed filesystem like glusterfs and map "local" directories to the service.
