@@ -2,8 +2,6 @@ FROM holgerimbery/debian:__BASEIMAGE_ARCH__-stretch
 ARG ARCH=__BASEIMAGE_ARCH__
 __CROSS_COPY qemu-__QEMU_ARCH__-static /usr/bin/
 
-FROM holgerimbery/debian:arm64-stretch
-
 
 LABEL maintainer="contact@connectedobjects.cloud"
 LABEL version="2.0" 
