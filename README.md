@@ -58,12 +58,6 @@ docker service create --name mosquitto \
 holgerimbery/docker_mosquitto:latest
 ```
 
-## parea - IoT Appliance
-![logo](https://github.com/holgerimbery/environment/raw/master/logo_small.jpg)
-
-This docker image is part of [parea - the IoT Appliance](https://github.com/holgerimbery/parea)
-but can also used independent as a standalone container.
-
 ## License
 MIT (c) 2017 Holger Imbery https://github.com/holgerimbery
 
