@@ -1,16 +1,14 @@
-FROM holgerimbery/debian:__BASEIMAGE_ARCH__-stretch
+FROM __BASEIMAGE_ARCH__/alpine:latest
 ARG ARCH=__BASEIMAGE_ARCH__
+__CROSS_COPY qemu-__QEMU_ARCH__-static /usr/bin/qemu-__QEMU_ARCH__-static
 
 LABEL maintainer="contact@connectedobjects.cloud"
-LABEL version="2.0" 
+LABEL version="2.1" 
 LABEL description="multiarch mosquitto mqtt brocker"
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y mosquitto && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk --no-cache add mosquitto mosquitto-clients && \
+    rm -rf /var/cache/apk/*
 
-RUN adduser --system --disabled-password --disabled-login mosquitto
 
 VOLUME ["/mqtt/data", "/mqtt/config", "/mqtt/log"]
 EXPOSE 1883 9001 8883 8083
