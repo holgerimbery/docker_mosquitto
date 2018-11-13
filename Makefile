@@ -21,8 +21,8 @@ arm64v8:
   		docker push $(REPO)/$(IMAGE_NAME):arm64v8-alpine
 
 arm32v6:
-		cp Dockerfile.cross Dockerfile.arm32v7
-		sed -i "s|__BASEIMAGE_ARCH__|arm32v7|g" Dockerfile.arm32v6
+		cp Dockerfile.cross Dockerfile.arm32v6
+		sed -i "s|__BASEIMAGE_ARCH__|arm32v6|g" Dockerfile.arm32v6
 		sed -i "s|__QEMU_ARCH__|arm|g" Dockerfile.arm32v6
 		sed -i  "s/__CROSS_//g" Dockerfile.arm32v6
 		cat Dockerfile.arm32v6
