@@ -23,13 +23,13 @@ docker pull holgerimbery/docker_mosquitto:latest
    * generate username and password: start a container (please modify volume mapping according to your needs) on the master
 
 ```
-docker run -it -v /mnt/glusterfs/config/mqtt/config/:/mqtt/config --entrypoint "/bin/bash" holgerimbery/docker_mosquitto:latest
+docker run -it -v /mnt/glusterfs/config/mqtt/config/:/mqtt/config --entrypoint "/bin/sh" holgerimbery/docker_mosquitto:latest
 ```
 
    * start password setup process
    
 ```
-cd /mqtt/config && chmod 755 mosquitto_password_install.sh && ./mosquitto_password_install.sh
+cd /mqtt/config && chmod 755 mosquitto_password_install.sh && sh ./mosquitto_password_install.sh
 ```
 
 ```
