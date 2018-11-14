@@ -1,5 +1,5 @@
-![Docker Pulls](https://img.shields.io/docker/pulls/holgerimbery/docker_mosquitto.svg)![Travis](https://img.shields.io/travis/holgerimbery/docker_mosquitto.svg)
-## mosquitto mqtt broker (multiarch - docker manifest & binfmt)
+![Docker Pulls](https://img.shields.io/docker/pulls/holgerimbery/mosquitto.svg)![Travis](https://img.shields.io/travis/holgerimbery/docker_mosquitto.svg)
+## mosquitto mqtt broker (multiarch)
 You can use this image as a container and as well as a service in a swarm.
 For swarm usage, it´s recommended to use a distributed filesystem like glusterfs and map "local" directories to the service.
 
@@ -16,24 +16,24 @@ amd64, arm32v7, arm64v8
    * pull image
    
 ```
-docker pull holgerimbery/docker_mosquitto:latest
+docker pull holgerimbery/mosquitto:latest
 ```
    
    * copy config files (github: directory config) to you local config - directory
    * generate username and password: start a container (please modify volume mapping according to your needs) on the master
 
 ```
-docker run -it -v /mnt/glusterfs/config/mqtt/config/:/mqtt/config --entrypoint "/bin/sh" holgerimbery/docker_mosquitto:latest
+docker run -it -v /srv/mosquitto/config/:/mqtt/config --entrypoint "/bin/bash" holgerimbery/mosquitto:latest
 ```
 
    * start password setup process
    
 ```
-cd /mqtt/config && chmod 755 mosquitto_password_install.sh && sh ./mosquitto_password_install.sh
+cd /mqtt/config && chmod 755 mosquitto_password_install.sh && ./mosquitto_password_install.sh
 ```
 
 ```
-bash mosquitto_password.sh
+sh mosquitto_password.sh
 ```
    * edit /mqtt/config/conf.d/ssl.conf & /mqtt/config/conf.d/websocket_ssl.conf (path to certs)
 
@@ -47,15 +47,16 @@ exit
 
 ```
 docker service create --name mosquitto \
---mount type=bind,source=/mnt/glusterfs/config/mqtt/data,target=/mqtt/data \
---mount type=bind,source=/mnt/glusterfs/config/mqtt/config,target=/mqtt/config \
---mount type=bind,source=/mnt/glusterfs/config/mqtt/log,target=/mqtt/log \
+--mount type=bind,source=/srv/mosquitto/data,target=/mqtt/data \
+--mount type=bind,source=/srv/mosquitto/config,target=/mqtt/config \
+# --mount type=bind,source=/srv/letsencrypt/archive/domain.tdl,target=/mqtt/config/certs \
+--mount type=bind,source=/srv/mosquitto/log,target=/mqtt/log \
 --network ingress \
 --publish 1883:1883 \
 --publish 9001:9001 \
 --publish 8883:8883 \
 --publish 8030:8083 \
-holgerimbery/docker_mosquitto:latest
+holgerimbery/mosquitto:latest
 ```
 
 ## License
