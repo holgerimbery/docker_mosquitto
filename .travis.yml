@@ -20,13 +20,13 @@ script:
 
 after_success:
     - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-    - docker push $REPO/$IMAGE_NAME:amd64-alpine
-    - docker push $REPO/$IMAGE_NAME:arm32v6-alpine
-    - docker push $REPO/$IMAGE_NAME:arm64v8-alpine
+    - docker push $REPO/$IMAGE_NAME:amd64
+    - docker push $REPO/$IMAGE_NAME:arm32v6
+    - docker push $REPO/$IMAGE_NAME:arm64v8
     - ./docker-linux-amd64 -v 
-    - ./docker-linux-amd64 manifest create $REPO/$IMAGE_NAME:$IMAGE_VERSION-alpine $REPO/$IMAGE_NAME:amd64-alpine $REPO/$IMAGE_NAME:arm32v6-alpine $REPO/$IMAGE_NAME:arm64v8-alpine -a
-    - ./docker-linux-amd64 manifest inspect $REPO/$IMAGE_NAME:$IMAGE_VERSION-alpine
-    - ./docker-linux-amd64 manifest annotate $REPO/$IMAGE_NAME:$IMAGE_VERSION-alpine $REPO/$IMAGE_NAME:amd64-alpine
-    - ./docker-linux-amd64 manifest annotate $REPO/$IMAGE_NAME:$IMAGE_VERSION-alpine $REPO/$IMAGE_NAME:arm32v6-alpine --os linux --arch arm
-    - ./docker-linux-amd64 manifest annotate $REPO/$IMAGE_NAME:$IMAGE_VERSION-alpine $REPO/$IMAGE_NAME:arm64v8-alpine --os linux --arch arm64 --variant armv8
-    - ./docker-linux-amd64 manifest push $REPO/$IMAGE_NAME:$IMAGE_VERSION-alpine
+    - ./docker-linux-amd64 manifest create $REPO/$IMAGE_NAME:$IMAGE_VERSION $REPO/$IMAGE_NAME:amd64 $REPO/$IMAGE_NAME:arm32v6 $REPO/$IMAGE_NAME:arm64v8 -a
+    - ./docker-linux-amd64 manifest inspect $REPO/$IMAGE_NAME:$IMAGE_VERSION
+    - ./docker-linux-amd64 manifest annotate $REPO/$IMAGE_NAME:$IMAGE_VERSION $REPO/$IMAGE_NAME:amd64
+    - ./docker-linux-amd64 manifest annotate $REPO/$IMAGE_NAME:$IMAGE_VERSION $REPO/$IMAGE_NAME:arm32v6 --os linux --arch arm
+    - ./docker-linux-amd64 manifest annotate $REPO/$IMAGE_NAME:$IMAGE_VERSION $REPO/$IMAGE_NAME:arm64v8 --os linux --arch arm64 --variant armv8
+    - ./docker-linux-amd64 manifest push $REPO/$IMAGE_NAME:$IMAGE_VERSION
