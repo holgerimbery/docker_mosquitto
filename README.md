@@ -1,4 +1,8 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/holgerimbery/mosquitto.svg)![Travis](https://img.shields.io/travis/holgerimbery/docker_mosquitto.svg)
+[![](https://images.microbadger.com/badges/image/holgerimbery/mosquitto.svg)](https://microbadger.com/images/holgerimbery/mosquitto "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/holgerimbery/mosquitto.svg)](https://microbadger.com/images/holgerimbery/mosquitto "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/holgerimbery/mosquitto:arm32v6.svg)](https://microbadger.com/images/holgerimbery/mosquitto:arm32v6 "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/holgerimbery/mosquitto:arm64v8.svg)](https://microbadger.com/images/holgerimbery/mosquitto:arm64v8 "Get your own version badge on microbadger.com")
 ## mosquitto mqtt broker (multiarch)
 You can use this image as a container and as well as a service in a swarm.
 For swarm usage, it´s recommended to use a distributed filesystem like glusterfs and map "local" directories to the service.
